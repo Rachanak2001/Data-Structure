@@ -650,4 +650,26 @@ cout << add[i] << " ";<br>
  return 0;<br>
 }<br>
 **OUTPUT**<br>
- ![image](https://user-images.githubusercontent.com/97940850/154901723-e6259951-33e2-4f3f-9d73-23398c59a006.png)
+ ![image](https://user-images.githubusercontent.com/97940850/154901723-e6259951-33e2-4f3f-9d73-23398c59a006.png)<br>
+	
+**4. Write a c++ program to implement reverse order of the array element.**<br>
+#include<iostream><br>
+using namespace std;<br>
+int main()<br>
+{<br>
+    int arr[10], i;<br>
+    cout<<"Enter 10 Array Elements: ";<br>
+    for(i=0; i<10; i++)<br>
+        cin>>arr[i];<br>
+    cout<<"\nThe Original Array is:\n";<br>
+    for(i=0; i<10; i++)<br>
+        cout<<arr[i]<<" ";<br>
+    cout<<"\n\nThe Reverse of Given Array is:\n";<br>
+    for(i=(10-1); i>=0; i--)<br>
+        cout<<arr[i]<<" ";<br>
+    cout<<endl;<br>
+    return 0;<br>
+}<br>
+**OUTPUT**<br>
+![image](https://user-images.githubusercontent.com/97940850/154902782-c9f796fd-b2a5-4e6f-b50b-e082f7ed7da3.png)<br>
+	
