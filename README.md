@@ -740,3 +740,39 @@ int main() {<br>
 }<br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/154903861-ff79a97d-0112-4351-9911-02ae4959034b.png)<br>
+
+**6. write a C++ program to binary search element**<br>
+//eg4 binary search<br>
+#include<iostream><br>
+using namespace std;<br>
+int main()<br>
+{<br>
+    int i, arr[10], num, first, last, middle;<br>
+    cout<<"Enter 10 Elements (in ascending order): ";<br>
+    for(i=0; i<10; i++)<br>
+        cin>>arr[i];<br>
+    cout<<"\nEnter Element to be Search: ";<br>
+    cin>>num;<br>
+    first = 0;<br>
+    last = 9;<br>
+    middle = (first+last)/2;<br>
+    while(first <= last)<br>
+    {<br>
+        if(arr[middle]<num)<br>
+            first = middle+1;<br>
+        else if(arr[middle]==num)<br>
+        {<br>
+            cout<<"\nThe number, "<<num<<" found at Position "<<middle+1;<br>
+            break;<br>
+        }<br>
+        else<br>
+            last = middle-1;<br>
+        middle = (first+last)/2;<br>
+    }<br>
+    if(first>last)<br>
+        cout<<"\nThe number, "<<num<<" is not found in given Array";<br>
+    cout<<endl;<br>
+    return 0;<br>
+}	<br>
+**OUTPUT**<br>
+![image](https://user-images.githubusercontent.com/97940850/154904981-d74c8b7b-0635-43a5-8a11-ce208c6eea2e.png)<br>
