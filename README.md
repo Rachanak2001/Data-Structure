@@ -535,3 +535,5 @@ void single_llist::display()
 ![image](https://user-images.githubusercontent.com/97940850/154896650-4ffd5e3f-9752-43fb-924a-d4bf1613073f.png)<br>
 ![image](https://user-images.githubusercontent.com/97940850/154896708-5b95f103-27e4-4835-9f4f-ce427b1d4d01.png)<br>
 ![image](https://user-images.githubusercontent.com/97940850/154896779-e4da56c0-61f5-4510-90f9-bbd9a31fd82f.png)<br>
+ **2.Write a C++ program to split the linked list into two halves such that the element ‘e’ should be the first element of second list. **
+ 
