@@ -614,3 +614,40 @@ return 0;<br>
 }<br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/154897558-5782c729-8fe7-431b-8983-ed77247066b8.png)<br>
+
+ 
+ **3.write a C++ program to implement addition of two arrays **<br>
+#include<iostream><br>
+using namespace std;<br>
+int main()<br>
+{<br>
+	int size, i, arr1[10], arr2[10], add[10];<br>
+	
+	cout << "\nPlease Enter the Array Size =  ";<br>
+	cin >> size;<br>
+	
+	cout << "\nPlease Enter the First Array Items =  ";<br>
+	for(i = 0; i < size; i++)<br>
+	{<br>
+		cin >> arr1[i];<br>
+	}	<br>
+	cout << "\nPlease Enter the Second Array Items =  ";<br>
+	for(i = 0; i < size; i++)<br>
+	{<br>
+		cin >> arr2[i];<br>
+	}<br>
+	for(i = 0; i < size; i++)<br>
+	{<br>
+		add[i] = arr1[i] + arr2[i];<br>
+		cout << arr1[i] << " + " << arr2[i] << " = " << add[i] << "\n";<br>
+	}<br>
+	cout << "\nThe Final Result of adding 2 One Dimensional Arrays = ";<br>
+	for(i = 0; i < size; i++)<br>
+	{<br>
+		cout << add[i] << " ";<br>
+	}<br>
+
+ 	return 0;<br>
+}<br>
+**OUTPUT**<br>
+ ![image](https://user-images.githubusercontent.com/97940850/154901723-e6259951-33e2-4f3f-9d73-23398c59a006.png)
