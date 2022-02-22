@@ -853,6 +853,6 @@ int main()
 	while(ch!=4);
 	return 0;
 	}
-**OUTPUT**
-![image](https://user-images.githubusercontent.com/97940850/155065823-90d755c2-c517-4e71-8849-012bcdc25b98.png)
+**OUTPUT**<br>
+![image](https://user-images.githubusercontent.com/97940850/155065823-90d755c2-c517-4e71-8849-012bcdc25b98.png)<br>
 					     
