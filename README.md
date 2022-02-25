@@ -777,7 +777,7 @@ int main()<br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/154904981-d74c8b7b-0635-43a5-8a11-ce208c6eea2e.png)<br>
 
-**7. Adding 10 numbers using for,while,dowhile. using switch case. **<br>
+**7. Adding 10 numbers using for,while,dowhile. using switch case.**<br>
 #include<iostream><br>
 using namespace std;<br>
 int main()<br>
