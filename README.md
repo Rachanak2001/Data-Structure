@@ -1251,3 +1251,47 @@ int main() <br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/155930803-c5d4e853-4f8b-4e89-adb4-7c27b56b5179.png)<br>
 	       
+**10.//Write a C++ program to implement maximum heap.**<br>
+#include <iostream><br>
+using namespace std;<br>
+void max_heap(int *a, int m, int n) {<br>
+   int j, t;<br>
+   t = a[m];<br>
+   j = 2 * m;<br>
+   while (j <= n) {<br>
+      if (j < n && a[j+1] > a[j])<br>
+         j = j + 1;<br>
+      if (t > a[j])<br>
+         break;<br>
+      else if (t <= a[j]) {<br>
+         a[j / 2] = a[j];<br>
+         j = 2 * j;<br>
+      }<br>
+   }<br>
+   a[j/2] = t;<br>
+   return;<br>
+}<br>
+void build_maxheap(int *a,int n) {<br>
+   int k;<br>
+   for(k = n/2; k >= 1; k--) {<br>
+      max_heap(a,k,n);<br>
+   }<br>
+}<br>
+int main() {<br>
+   int n, i;<br>
+   cout<<"enter no of elements of array\n";<br>
+   cin>>n;<br>
+   int a[30];
+   for (i = 1; i <= n; i++) {<br>
+      cout<<"enter elements"<<" "<<(i)<<endl;<br>
+      cin>>a[i];<br>
+   }<br>
+   build_maxheap(a,n);<br>
+   cout<<"Max Heap\n";<br>
+   for (i = 1; i <= n; i++) {<br>
+      cout<<a[i]<<endl;<br>
+   }<br>
+}<br>
+**OUTPUT**	<br>
+![image](https://user-images.githubusercontent.com/97940850/156985379-70a13c84-6a1d-49fe-9576-4023593ee59a.png)<br>
+	       
