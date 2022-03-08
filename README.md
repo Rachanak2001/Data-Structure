@@ -1295,3 +1295,49 @@ int main() {<br>
 **OUTPUT**	<br>
 ![image](https://user-images.githubusercontent.com/97940850/156985379-70a13c84-6a1d-49fe-9576-4023593ee59a.png)<br>
 	       
+**11.Find a subset of given set,s={s1,s2,s3....sn} of n positive integer whose sum=a,given positive integer d.**<br>
+#include <iostream><br>
+using namespace std;<br>
+void displaySubset(int subSet[], int size)<br>
+{<br>
+   for(int i = 0; i < size; i++) <br>
+   {<br>
+      cout << subSet[i] << "  ";<br>
+   }<br>
+   cout << endl;<br>
+}<br>
+
+void subsetSum(int set[], int subSet[], int n, int subSize, int total, int nodeCount ,int sum) <br>
+{<br>
+   if( total == sum) <br>
+   {<br>
+      displaySubset(subSet, subSize);    <br> 
+      subsetSum(set,subSet,n,subSize-1,total-set[nodeCount],nodeCount+1,sum);    <br> 
+      return;<br>
+   }<br>
+   else <br>
+   {<br>
+      for( int i = nodeCount; i < n; i++ ) <br>
+	  {     <br>
+         subSet[subSize] = set[i];<br>
+         subsetSum(set,subSet,n,subSize+1,total+set[i],i+1,sum);   <br>  
+      }<br>
+   }<br>
+}<br>
+
+void findSubset(int set[], int size, int sum)<br>
+ {<br>
+   int *subSet = new int[size];   <br>  
+   subsetSum(set, subSet, size, 0, 0, 0, sum);<br>
+   delete[] subSet;<br>
+}<br>
+
+int main()<br>
+{<br>
+   int weights[] = {4,6,3,7,5,8,1};<br>
+   int size = 7;<br>
+   findSubset(weights, size, 11);<br>
+}<br>
+
+**OUTPUT**<br>
+![image](https://user-images.githubusercontent.com/97940850/157186615-bf022f29-a9bd-484f-ba85-44cfe525d621.png)<br>
