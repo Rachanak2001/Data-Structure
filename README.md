@@ -1342,147 +1342,147 @@ int main()<br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/157186615-bf022f29-a9bd-484f-ba85-44cfe525d621.png)<br>
 
-**/*12..Write a program to store k keys into an array of size n at the location compute using a hash function, 
-loc=key%n, where k<=n and  key takes values from [1 to m], m>n. Handle the collision using Linear Probing technique.*/**
-#include<iostream>
-#include<limits.h>
-using namespace std;
-void Insert(int ary[],int hFn, int Size)
-{
-    int element,pos,n=0;
-	cout<<"Enter key element to insert\n";
-	cin>>element;
-	pos = element%hFn; 
-	while(ary[pos]!= INT_MIN)
- 	{  
-		if(ary[pos]== INT_MAX)
-     	break;
-		pos = (pos+1)%hFn;
-		n++;
-		if(n==Size)
-   		 break;     
-	}
-	if(n==Size)
-    cout<<"Hash table was full of elements\nNo Place to insert this element\n\n";
-	else
-    ary[pos] = element;    
-}
-void display(int ary[],int Size)
-{
-	int i;
-	cout<<"Index\tValue\n";
-	for(i=0;i<Size;i++)
-    cout<<i<<"\t"<<ary[i]<<"\n";
-}
-int main()
-{
-	int Size,hFn,i,choice;
-	cout<<"Enter size of hash table\n";
-	cin>>Size;
-	 hFn=Size;
-	int ary[Size];
-	for(i=0;i<Size;i++)
-     ary[i]=INT_MIN; 
-	do
-	{
-		cout<<"Enter your choice: ";
-		cout<<" 1-> Insert\n 2-> Display\n 0-> Exit\n";
-		cin>>choice;
-		switch(choice)
-		{
-		case 1:
-			Insert(ary,hFn,Size);
-			break;
-		case 2:
-			display(ary,Size);
-			break;
-		default:
-			cout<<"Enter correct choice\n";
-		break;
-		}
-	}
-while(choice);
-return 0;
-}
-	
-**OUTPUT**	
-![image](https://user-images.githubusercontent.com/97940850/162888607-083eb423-d86f-4124-9544-98f32e0d8f5d.png)
-
-	
-**13. /*Write a C++ program to implement merge sort technique using divide and conquer method.*/**
-#include <iostream>
-#include<conio.h>
-using namespace std;
-void Merge(int *a, int low, int high, int mid)
-{
-	int i, j, k, temp[high-low+1];
-	i = low;
-	k = 0;
-              j = mid + 1;
-             while (i <= mid && j <= high)
-	{
-		if (a[i] < a[j])
-		{
-			temp[k] = a[i];
-			k++;
-			i++;
-		}
-		else
-		{
-			temp[k] = a[j];
-			k++;
-			j++;
-		}
-	}
-	while (i <= mid)
-	
-	{
-		temp[k] = a[i];
-		k++;
-		i++;
-	}
-	while (j <= high)
-	{
-		temp[k] = a[j];
-		k++;
-		j++;
-	}
-	for (i = low; i <= high; i++)
-	{
-		a[i] = temp[i-low];
-	}
-}
-void MergeSort(int *a, int low, int high)
-{
-	int mid;
-	if (low < high)
-	{
-		mid=(low+high)/2;
-			MergeSort(a, low, mid);
-		              MergeSort(a, mid+1, high);
-			Merge(a, low, high, mid);
-	}
-}
-int main()
-{
-	int n, i;
-	cout<<"\n Enter the number of data element to be sorted: ";
-	cin>>n;
+**/*12..Write a program to store k keys into an array of size n at the location compute using a hash function, <br>
+loc=key%n, where k<=n and  key takes values from [1 to m], m>n. Handle the collision using Linear Probing technique.*/**<br>
+#include<iostream><br>
+#include<limits.h><br>
+using namespace std;<br>
+void Insert(int ary[],int hFn, int Size)<br>
+{<br>
+    int element,pos,n=0;<br>
+	cout<<"Enter key element to insert\n";v
+	cin>>element;<br>
+	pos = element%hFn; <br>
+	while(ary[pos]!= INT_MIN)<br>
+ 	{  <br>
+		if(ary[pos]== INT_MAX)<br>
+     	break;<br>
+		pos = (pos+1)%hFn;<br>
+		n++;<br>
+		if(n==Size)<br>
+   		 break;   <br>  
+	}<br>
+	if(n==Size)<br>
+    cout<<"Hash table was full of elements\nNo Place to insert this element\n\n";<br>
+	else<br>
+    ary[pos] = element; <br>   
+}<br>
+void display(int ary[],int Size)<br>
+{<br>
+	int i;<br>
+	cout<<"Index\tValue\n";<br>
+	for(i=0;i<Size;i++)<br>
+    cout<<i<<"\t"<<ary[i]<<"\n";<br>
+}<br>
+int main()<br>
+{<br>
+	int Size,hFn,i,choice;<br>
+	cout<<"Enter size of hash table\n";<br>
+	cin>>Size;<br>
+	 hFn=Size;<br>
+	int ary[Size];<br>
+	for(i=0;i<Size;i++)<br>
+     ary[i]=INT_MIN; <br>
+	do<br>
+	{<br>
+		cout<<"Enter your choice: ";<br>
+		cout<<" 1-> Insert\n 2-> Display\n 0-> Exit\n";<br>
+		cin>>choice;<br>
+		switch(choice)<br>
+		{<br>
+		case 1:<br>
+			Insert(ary,hFn,Size);<br>
+			break;<br>
+		case 2:<br>
+			display(ary,Size);<br>
+			break;<br>
+		default:<br>
+			cout<<"Enter correct choice\n";<br>
+		break;<br>
+		}<br>
+	}<br>
+while(choice);<br>
+return 0;<br>
+}<br>
+	<br>
+**OUTPUT**	<br>
+![image](https://user-images.githubusercontent.com/97940850/162888607-083eb423-d86f-4124-9544-98f32e0d8f5d.png)<br>
+<br>
+<br>	
+**13. /*Write a C++ program to implement merge sort technique using divide and conquer method.*/**<br>
+#include <iostream><br>
+#include<conio.h><br>
+using namespace std;<br>
+void Merge(int *a, int low, int high, int mid)<br>
+{<br>
+	int i, j, k, temp[high-low+1];<br>
+	i = low;<br>
+	k = 0;<br>
+              j = mid + 1;<br>
+             while (i <= mid && j <= high)<br>
+	{<br>
+		if (a[i] < a[j])<br>
+		{<br>
+			temp[k] = a[i];<br>
+			k++;<br>
+			i++;<br>
+		}<br>
+		else<br>
+		{<br>
+			temp[k] = a[j];<br>
+			k++;<br>
+			j++;<br>
+		}<br>
+	}<br>
+	while (i <= mid)<br>
+	<br>
+	{<br>
+		temp[k] = a[i];<br>
+		k++;<br>
+		i++;<br>
+	}<br>
+	while (j <= high)<br>
+	{<br>
+		temp[k] = a[j];<br>
+		k++;<br>
+		j++;<br>
+	}<br>
+	for (i = low; i <= high; i++)<br>
+	{<br>
+		a[i] = temp[i-low];<br>
+	}<br>
+}<br>
+void MergeSort(int *a, int low, int high)<br>
+{<br>
+	int mid;<br>
+	if (low < high)<br>
+	{<br>
+		mid=(low+high)/2;<br>
+			MergeSort(a, low, mid);<br>
+		              MergeSort(a, mid+1, high);<br>
+			Merge(a, low, high, mid);<br>
+	}<br>
+}<br>
+int main()<br>
+{<br>
+	int n, i;<br>
+	cout<<"\n Enter the number of data element to be sorted: ";<br>
+	cin>>n;<br>
  
-	int arr[n];
-	for(i = 0; i < n; i++)
-	{
-		cout<<"Enter element "<<i+1<<": ";
-		cin>>arr[i];
-	}
-        MergeSort(arr, 0, n-1);
-		cout<<"\nSorted Data ";
-	           for (i = 0; i < n; i++)
-                     cout<<"->"<<arr[i];
+	int arr[n];<br>
+	for(i = 0; i < n; i++)<br>
+	{<br>
+		cout<<"Enter element "<<i+1<<": ";<br>
+		cin>>arr[i];<br>
+	}<br>
+        MergeSort(arr, 0, n-1);<br>
+		cout<<"\nSorted Data ";<br>
+	           for (i = 0; i < n; i++)<br>
+                     cout<<"->"<<arr[i];<br>
  
-	       getch();
-}
-					
-**OUTPUT**
-![image](https://user-images.githubusercontent.com/97940850/162889023-188b1519-5788-4ab3-bed5-22b8b855260d.png)
+	       getch();<br>
+}<br>
+<br>					
+**OUTPUT**<br>
+![image](https://user-images.githubusercontent.com/97940850/162889023-188b1519-5788-4ab3-bed5-22b8b855260d.png)<br>
 				
