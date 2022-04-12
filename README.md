@@ -1468,19 +1468,18 @@ int main()<br>
 	int n, i;<br>
 	cout<<"\n Enter the number of data element to be sorted: ";<br>
 	cin>>n;<br>
+ int arr[n];<br>
+for(i = 0; i < n; i++)<br>
+{<br>
+	cout<<"Enter element "<<i+1<<": ";<br>
+	cin>>arr[i];<br>
+}<br>
+     MergeSort(arr, 0, n-1);<br>
+	cout<<"\nSorted Data ";<br>
+	for (i = 0; i < n; i++)<br>
+        cout<<"->"<<arr[i];<br>
  
-	int arr[n];<br>
-	for(i = 0; i < n; i++)<br>
-	{<br>
-		cout<<"Enter element "<<i+1<<": ";<br>
-		cin>>arr[i];<br>
-	}<br>
-        MergeSort(arr, 0, n-1);<br>
-		cout<<"\nSorted Data ";<br>
-	           for (i = 0; i < n; i++)<br>
-                     cout<<"->"<<arr[i];<br>
- 
-	       getch();<br>
+ getch();<br>
 }<br>
 <br>					
 **OUTPUT**<br>
