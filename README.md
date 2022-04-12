@@ -1341,3 +1341,148 @@ int main()<br>
 
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/157186615-bf022f29-a9bd-484f-ba85-44cfe525d621.png)<br>
+
+**/*12..Write a program to store k keys into an array of size n at the location compute using a hash function, 
+loc=key%n, where k<=n and  key takes values from [1 to m], m>n. Handle the collision using Linear Probing technique.*/**
+#include<iostream>
+#include<limits.h>
+using namespace std;
+void Insert(int ary[],int hFn, int Size)
+{
+    int element,pos,n=0;
+	cout<<"Enter key element to insert\n";
+	cin>>element;
+	pos = element%hFn; 
+	while(ary[pos]!= INT_MIN)
+ 	{  
+		if(ary[pos]== INT_MAX)
+     	break;
+		pos = (pos+1)%hFn;
+		n++;
+		if(n==Size)
+   		 break;     
+	}
+	if(n==Size)
+    cout<<"Hash table was full of elements\nNo Place to insert this element\n\n";
+	else
+    ary[pos] = element;    
+}
+void display(int ary[],int Size)
+{
+	int i;
+	cout<<"Index\tValue\n";
+	for(i=0;i<Size;i++)
+    cout<<i<<"\t"<<ary[i]<<"\n";
+}
+int main()
+{
+	int Size,hFn,i,choice;
+	cout<<"Enter size of hash table\n";
+	cin>>Size;
+	 hFn=Size;
+	int ary[Size];
+	for(i=0;i<Size;i++)
+     ary[i]=INT_MIN; 
+	do
+	{
+		cout<<"Enter your choice: ";
+		cout<<" 1-> Insert\n 2-> Display\n 0-> Exit\n";
+		cin>>choice;
+		switch(choice)
+		{
+		case 1:
+			Insert(ary,hFn,Size);
+			break;
+		case 2:
+			display(ary,Size);
+			break;
+		default:
+			cout<<"Enter correct choice\n";
+		break;
+		}
+	}
+while(choice);
+return 0;
+}
+	
+**OUTPUT**	
+![image](https://user-images.githubusercontent.com/97940850/162888607-083eb423-d86f-4124-9544-98f32e0d8f5d.png)
+
+	
+**13. /*Write a C++ program to implement merge sort technique using divide and conquer method.*/**
+#include <iostream>
+#include<conio.h>
+using namespace std;
+void Merge(int *a, int low, int high, int mid)
+{
+	int i, j, k, temp[high-low+1];
+	i = low;
+	k = 0;
+              j = mid + 1;
+             while (i <= mid && j <= high)
+	{
+		if (a[i] < a[j])
+		{
+			temp[k] = a[i];
+			k++;
+			i++;
+		}
+		else
+		{
+			temp[k] = a[j];
+			k++;
+			j++;
+		}
+	}
+	while (i <= mid)
+	
+	{
+		temp[k] = a[i];
+		k++;
+		i++;
+	}
+	while (j <= high)
+	{
+		temp[k] = a[j];
+		k++;
+		j++;
+	}
+	for (i = low; i <= high; i++)
+	{
+		a[i] = temp[i-low];
+	}
+}
+void MergeSort(int *a, int low, int high)
+{
+	int mid;
+	if (low < high)
+	{
+		mid=(low+high)/2;
+			MergeSort(a, low, mid);
+		              MergeSort(a, mid+1, high);
+			Merge(a, low, high, mid);
+	}
+}
+int main()
+{
+	int n, i;
+	cout<<"\n Enter the number of data element to be sorted: ";
+	cin>>n;
+ 
+	int arr[n];
+	for(i = 0; i < n; i++)
+	{
+		cout<<"Enter element "<<i+1<<": ";
+		cin>>arr[i];
+	}
+        MergeSort(arr, 0, n-1);
+		cout<<"\nSorted Data ";
+	           for (i = 0; i < n; i++)
+                     cout<<"->"<<arr[i];
+ 
+	       getch();
+}
+					
+**OUTPUT**
+![image](https://user-images.githubusercontent.com/97940850/162889023-188b1519-5788-4ab3-bed5-22b8b855260d.png)
+				
