@@ -1758,103 +1758,104 @@ void double_llist::add_after(int value, int pos)<br>
 ![image](https://user-images.githubusercontent.com/97940850/163926257-5cfb44bb-76f9-4155-87b9-751b66ca5687.png)<br>
 
 **15. Write a C++ program to solve N-Queue problem using backtracking method. **<br>
-#include<iostream>
-using namespace std;
-int grid[10][10];
-//print the solution
-void print(int n) {
-    for (int i = 0;i <= n-1; i++)
-	 {
-        for (int j = 0;j <= n-1; j++)
-		 {
+#include<iostream><br>
+using namespace std;<br>
+int grid[10][10];<br>
+//print the solution<br>
+void print(int n)
+{<br>
+    for (int i = 0;i <= n-1; i++)<br>
+	 {<br>
+        for (int j = 0;j <= n-1; j++)<br>
+		 {<br>
             
-                cout <<grid[i][j]<< " ";
+                cout <<grid[i][j]<< " ";<br>
             
-        }
-        cout<<endl;
-    }
-    cout<<endl;
-    cout<<endl;
-}
-//function for check the position is safe or not
-//row is indicates the queen no. and col represents the possible positions
-bool isSafe(int col, int row, int n) 
-{
-  //check for same column
-    for (int i = 0; i < row; i++)
-	 {
-        if (grid[i][col])
-		 {
-            return false;
-        }
-    }
-    //check for upper left diagonal
-    for (int i = row,j = col;i >= 0 && j >= 0; i--,j--) 
-	{
-    	 if (grid[i][j]) 
-		 {
-            return false;
-        }
-    }
-    //check for upper right diagonal
-    for (int i = row, j = col; i >= 0 && j < n; j++, i--) 
-	{
-        if (grid[i][j]) 
-		{
-            return false;
-        }
-    }
-    return true;
-}
-//function to find the position for each queen
-//row is indicates the queen no. and col represents the possible positions
-bool solve (int n, int row) 
-{
-    if (n == row) 
-	{
-        print(n);
-        return true;
-    }
-    //variable res is use for possible backtracking 
-    bool res = false;
-    for (int i = 0;i <=n-1;i++) 
-	{
-        if (isSafe(i, row, n)) 
-		{
-            grid[row][i] = 1;
-            //recursive call solve(n, row+1) for next queen (row+1)
-            res = solve(n, row+1) || res;//if res ==false then backtracking will occur 
-            //by assigning the grid[row][i] = 0
+        }<br>
+        cout<<endl;<br>
+    }<br>
+    cout<<endl;<br>
+    cout<<endl;<br>
+}<br>
+//function for check the position is safe or not<br>
+//row is indicates the queen no. and col represents the possible positions<br>
+bool isSafe(int col, int row, int n) <br>
+{<br>
+  //check for same column<br>
+    for (int i = 0; i < row; i++)<br>
+	 {<br>
+        if (grid[i][col])<br>
+		 {<br>
+            return false;<br>
+        }<br>
+    }<br>
+    //check for upper left diagonal<br>
+    for (int i = row,j = col;i >= 0 && j >= 0; i--,j--) <br>
+	{<br>
+    	 if (grid[i][j]) <br>
+		 {<br>
+            return false;<br>
+        }<br>
+    }<br>
+    //check for upper right diagonal<br>
+    for (int i = row, j = col; i >= 0 && j < n; j++, i--) <br>
+	{<br>
+        if (grid[i][j]) <br>
+		{<br>
+            return false;<br>
+        }<br>
+    }<br>
+    return true;<br>
+}<br>
+//function to find the position for each queen<br>
+//row is indicates the queen no. and col represents the possible positions<br>
+bool solve (int n, int row) <br>
+{<br>
+    if (n == row) <br>
+	{<br>
+        print(n);<br>
+        return true;<br>
+    }<br>
+    //variable res is use for possible backtracking <br>
+    bool res = false;<br>
+    for (int i = 0;i <=n-1;i++) <br>
+	{<br>
+        if (isSafe(i, row, n)) <br>
+		{<br>
+            grid[row][i] = 1;<br>
+            //recursive call solve(n, row+1) for next queen (row+1)<br>
+            res = solve(n, row+1) || res;//if res ==false then backtracking will occur <br>
+            //by assigning the grid[row][i] = 0<br>
             
-            grid[row][i] = 0;
-        }
-    }
-    return res;
-}
-int main()
-{
-  ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-        int n;
-        cout<<"Enter the number of queen"<<endl;
-        cin >> n;
-        for (int i = 0;i < n;i++) 
-		{
-            for (int j = 0;j < n;j++) 
-			{
-                grid[i][j] = 0;
-            }
-        }
-        bool res = solve(n, 0);
-        if(res == false) 
-		{
-            cout << -1 << endl; //if there is no possible solution
-        } else 
-		{
-            cout << endl;
-        }
-  return 0;
-}
-	
-**OUTPUT**
-![image](https://user-images.githubusercontent.com/97940850/163940155-348b853a-c87d-4d81-85a7-eb185157e372.png)
+            grid[row][i] = 0;<br>
+        }<br>
+    }<br>
+    return res;<br>
+}<br>
+int main()<br>
+{<br>
+  ios_base::sync_with_stdio(false);<br>
+    cin.tie(NULL);<br>
+        int n;<br>
+        cout<<"Enter the number of queen"<<endl;<br>
+        cin >> n;<br>
+        for (int i = 0;i < n;i++) <br>
+		{<br>
+            for (int j = 0;j < n;j++) <br>
+			{<br>
+                grid[i][j] = 0;<br>
+            }<br>
+        }<br>
+        bool res = solve(n, 0);<br>
+        if(res == false) <br>
+		{<br>
+            cout << -1 << endl; //if there is no possible solution<br>
+        } else <br>
+		{<br>
+            cout << endl;<br>
+        }<br>
+  return 0;<br>
+}<br>
+	<br>
+**OUTPUT**<br>
+![image](https://user-images.githubusercontent.com/97940850/163940155-348b853a-c87d-4d81-85a7-eb185157e372.png)<br>
