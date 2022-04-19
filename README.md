@@ -1408,7 +1408,9 @@ return 0;<br>
 **OUTPUT**	<br>
 ![image](https://user-images.githubusercontent.com/97940850/162888607-083eb423-d86f-4124-9544-98f32e0d8f5d.png)<br>
 <br>
-<br>	
+<br>
+	
+	
 **13. /*Write a C++ program to implement merge sort technique using divide and conquer method.*/**<br>
 #include <iostream><br>
 #include<conio.h><br>
@@ -1485,54 +1487,54 @@ for(i = 0; i < n; i++)<br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/162889023-188b1519-5788-4ab3-bed5-22b8b855260d.png)<br>
 				
-** **<br>
-#include<iostream><br>
-#include<cstdio><br>
-#include<cstdlib><br>
-using namespace std;<br>
-struct node<br>
-{<br>
-    int info;<br>
-    struct node *next;<br>
-    struct node *prev;<br>
-}*start;<br>
-class double_llist<br>
-{<br>
-    public:<br>
-        void create_list(int value);<br>
-        void add_begin(int value);<br>
-        void add_after(int value, int position);<br>
-        void delete_element(int value);<br>
-        void search_element(int value);<br>
-        void display_dlist();<br>
-        void count();<br>
-        void reverse();<br>
-        double_llist()<br>
-        {<br>
-            start = NULL;  <br>
-        }<br>
-};<br>
- int main()<br>
-{<br>
-    int choice, element, position;<br>
-    double_llist dl;<br>
-    while (1)<br>
-    {<br>
-        cout<<endl<<"----------------------------"<<endl;<br>
-        cout<<endl<<"Operations on Doubly linked list"<<endl;<br>
-        cout<<endl<<"----------------------------"<<endl;    <br>    
-        cout<<"1.Create Node"<<endl;<br>
-        cout<<"2.Add at begining"<<endl;<br>
-        cout<<"3.Add after position"<<endl;<br>
-        cout<<"4.Delete"<<endl;<br>
-        cout<<"5.Display"<<endl;<br>
-        cout<<"6.Count"<<endl;<br>
-        cout<<"7.Reverse"<<endl;<br>
-        cout<<"8.Quit"<<endl;<br>
-        cout<<"Enter your choice : ";<br>
-        cin>>choice;<br>
-        switch ( choice )<br>
-        {<br>
+**14. Write a c++ program to implement doubly Linked list.**
+#include<iostream>
+#include<cstdio>
+#include<cstdlib>
+using namespace std;
+struct node
+{
+    int info;
+    struct node *next;
+    struct node *prev;
+}*start;
+class double_llist
+{
+    public:
+        void create_list(int value);
+        void add_begin(int value);
+        void add_after(int value, int position);
+        void delete_element(int value);
+        void search_element(int value);
+        void display_dlist();
+        void count();
+        void reverse();
+        double_llist()
+        {
+            start = NULL;  
+        }
+};
+ int main()
+{
+    int choice, element, position;
+    double_llist dl;
+    while (1)
+    {
+        cout<<endl<<"----------------------------"<<endl;
+        cout<<endl<<"Operations on Doubly linked list"<<endl;
+        cout<<endl<<"----------------------------"<<endl;        
+        cout<<"1.Create Node"<<endl;
+        cout<<"2.Add at begining"<<endl;
+        cout<<"3.Add after position"<<endl;
+        cout<<"4.Delete"<<endl;
+        cout<<"5.Display"<<endl;
+        cout<<"6.Count"<<endl;
+        cout<<"7.Reverse"<<endl;
+        cout<<"8.Quit"<<endl;
+        cout<<"Enter your choice : ";
+        cin>>choice;
+        switch ( choice )
+        {
         case 1:
             cout<<"Enter the element: ";
             cin>>element;
@@ -1550,6 +1552,11 @@ class double_llist<br>
             cin>>element;
             cout<<"Insert Element after postion: ";
             cin>>position;
+            if(position<=0)
+            {
+            	cout<<"\n Position cant be less than 1. "<<endl;
+            break;
+			}
             dl.add_after(element, position);
             cout<<endl;
             break;
@@ -1741,4 +1748,15 @@ void double_llist::add_after(int value, int pos)
     }
     start = p1;
     cout<<"List Reversed"<<endl;
-}
+}	
+	
+**OUTPUT**
+![image](https://user-images.githubusercontent.com/97940850/163925823-3a5f14c6-7a35-4b6b-b938-65c6637fe5a2.png)
+![image](https://user-images.githubusercontent.com/97940850/163925915-56cb951c-b09b-445e-8835-03d1a7112d98.png)
+![image](https://user-images.githubusercontent.com/97940850/163926042-c912ec96-1226-4520-8477-3a9f9c382dd6.png)
+![image](https://user-images.githubusercontent.com/97940850/163926125-0f99da44-5330-43ba-a4b3-2dd9456d7bfa.png)
+![image](https://user-images.githubusercontent.com/97940850/163926257-5cfb44bb-76f9-4155-87b9-751b66ca5687.png)
+
+
+
+
