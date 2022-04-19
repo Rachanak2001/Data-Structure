@@ -1487,337 +1487,338 @@ for(i = 0; i < n; i++)<br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/162889023-188b1519-5788-4ab3-bed5-22b8b855260d.png)<br>
 				
-**14. Write a c++ program to implement doubly Linked list.**
-#include<iostream>
-#include<cstdio>
-#include<cstdlib>
-using namespace std;
-struct node
-{
-    int info;
-    struct node *next;
-    struct node *prev;
-}*start;
-class double_llist
-{
-    public:
-        void create_list(int value);
-        void add_begin(int value);
-        void add_after(int value, int position);
-        void delete_element(int value);
-        void search_element(int value);
-        void display_dlist();
-        void count();
-        void reverse();
-        double_llist()
-        {
-            start = NULL;  
-        }
-};
- int main()
-{
-    int choice, element, position;
-    double_llist dl;
-    while (1)
-    {
-        cout<<endl<<"----------------------------"<<endl;
-        cout<<endl<<"Operations on Doubly linked list"<<endl;
-        cout<<endl<<"----------------------------"<<endl;        
-        cout<<"1.Create Node"<<endl;
-        cout<<"2.Add at begining"<<endl;
-        cout<<"3.Add after position"<<endl;
-        cout<<"4.Delete"<<endl;
-        cout<<"5.Display"<<endl;
-        cout<<"6.Count"<<endl;
-        cout<<"7.Reverse"<<endl;
-        cout<<"8.Quit"<<endl;
-        cout<<"Enter your choice : ";
-        cin>>choice;
-        switch ( choice )
-        {
-        case 1:
-            cout<<"Enter the element: ";
-            cin>>element;
-            dl.create_list(element);
-            cout<<endl;
-            break;
-        case 2:
-            cout<<"Enter the element: ";
-            cin>>element;
-            dl.add_begin(element);
-            cout<<endl;
-            break;
-        case 3:
-            cout<<"Enter the element: ";
-            cin>>element;
-            cout<<"Insert Element after postion: ";
-            cin>>position;
-            if(position<=0)
-            {
-            	cout<<"\n Position cant be less than 1. "<<endl;
-            break;
-			}
-            dl.add_after(element, position);
-            cout<<endl;
-            break;
-        case 4:
-            if (start == NULL)
-            {                      
-                cout<<"List empty,nothing to delete"<<endl;  
-                break;
-            }
-            cout<<"Enter the element for deletion: ";
-            cin>>element;
-            dl.delete_element(element);
-            cout<<endl;
-            break;
-        case 5:
-            dl.display_dlist();
-            cout<<endl;
-            break;
-        case 6:
-            dl.count();
-            break;    
-        case 7:
-            if (start == NULL)
-            {
-                cout<<"List empty,nothing to reverse"<<endl;
-                break;
-            }
-            dl.reverse();
-            cout<<endl;
-            break;
-        case 8:
-            exit(1);
-        default:
-            cout<<"Wrong choice"<<endl;
-        }
-    }
-    return 0;
-}
- void double_llist::create_list(int value)
-{
-    struct node *s, *temp;
-    temp = new(struct node);
-    temp->info = value;
-    temp->next = NULL;
-    if (start == NULL)
-    {
-        temp->prev = NULL;
-        start = temp;
-    }
-    else
-    {
-        s = start;
-        while (s->next != NULL)
-            s = s->next;
-        s->next = temp;
-        temp->prev = s;
-    }
-}
- void double_llist::add_begin(int value)
-{
-    if (start == NULL)
-    {
-        cout<<"First Create the list."<<endl;
-        return;
-    }
-    struct node *temp;
-    temp = new(struct node);
-    temp->prev = NULL;
-    temp->info = value;
-    temp->next = start;
-    start->prev = temp;
-    start = temp;
-    cout<<"Element Inserted"<<endl;
-}
-void double_llist::add_after(int value, int pos)
-{
-    if (start == NULL)
-    {
-        cout<<"First Create the list."<<endl;
-        return;
-    }
-    struct node *tmp, *q;
-    int i;
-    q = start;
-    for (i = 0;i < pos - 1;i++)
-    {
-        q = q->next;
-        if (q == NULL)
-        {
-            cout<<"There are less than ";
-            cout<<pos<<" elements."<<endl;
-            return;
-        }
-    }
-    tmp = new(struct node);
-    tmp->info = value;
-    if (q->next == NULL)
-    {
-        q->next = tmp;
-        tmp->next = NULL;
-        tmp->prev = q;      
-    }
-    else
-    {
-        tmp->next = q->next;
-        tmp->next->prev = tmp;
-        q->next = tmp;
-        tmp->prev = q;
-    }
-    cout<<"Element Inserted"<<endl;
-}
- void double_llist::delete_element(int value)
-{
-    struct node *tmp, *q;
-        if (start->info == value)
-    {
-        tmp = start;
-        start = start->next;  
-        start->prev = NULL;
-        cout<<"Element Deleted"<<endl;
-        free(tmp);
-        return;
-    }
-    q = start;
-    while (q->next->next != NULL)
-    {  
-               if (q->next->info == value)  
-        {
-            tmp = q->next;
-            q->next = tmp->next;
-            tmp->next->prev = q;
-            cout<<"Element Deleted"<<endl;
-            free(tmp);
-            return;
-        }
-        q = q->next;
-    }
-        if (q->next->info == value)    
-    {
-        tmp = q->next;
-        free(tmp);
-        q->next = NULL;
-        cout<<"Element Deleted"<<endl;
-        return;
-    }
-    cout<<"Element "<<value<<" not found"<<endl;
-}
- void double_llist::display_dlist()
-{
-    struct node *q;
-    if (start == NULL)
-    {
-        cout<<"List empty,nothing to display"<<endl;
-        return;
-    }
-    q = start;
-    cout<<"The Doubly Link List is :"<<endl;
-    while (q != NULL)
-    {
-        cout<<q->info<<" <-> ";
-        q = q->next;
-    }
-    cout<<"NULL"<<endl;
-}
- void double_llist::count()
-{
-    struct node *q = start;
-    int cnt = 0;
-    while (q != NULL)
-    {
-        q = q->next;
-        cnt++;
-    }
-    cout<<"Number of elements are: "<<cnt<<endl;
-}
- void double_llist::reverse()
-{
-    struct node *p1, *p2;
-    p1 = start;
-    p2 = p1->next;
-    p1->next = NULL;
-    p1->prev = p2;
-    while (p2 != NULL)
-    {
-        p2->prev = p2->next;
-        p2->next = p1;
-        p1 = p2;
-        p2 = p2->prev;
-    }
-    start = p1;
-    cout<<"List Reversed"<<endl;
-}	
-	
-**OUTPUT**
-![image](https://user-images.githubusercontent.com/97940850/163925823-3a5f14c6-7a35-4b6b-b938-65c6637fe5a2.png)
-![image](https://user-images.githubusercontent.com/97940850/163925915-56cb951c-b09b-445e-8835-03d1a7112d98.png)
-![image](https://user-images.githubusercontent.com/97940850/163926042-c912ec96-1226-4520-8477-3a9f9c382dd6.png)
-![image](https://user-images.githubusercontent.com/97940850/163926125-0f99da44-5330-43ba-a4b3-2dd9456d7bfa.png)
-![image](https://user-images.githubusercontent.com/97940850/163926257-5cfb44bb-76f9-4155-87b9-751b66ca5687.png)
+**14. Write a c++ program to implement doubly Linked list.**<br>
+#include<iostream><br>
+#include<cstdio><br>
+#include<cstdlib><br>
+using namespace std;<br>
+struct node<br>
+{<br>
+    int info;<br>
+    struct node *next;<br>
+    struct node *prev;<br>
+}*start;<br>
+class double_llist<br>
+{<br>
+    public:<br>
+        void create_list(int value);<br>
+        void add_begin(int value);<br>
+        void add_after(int value, int position);<br>
+        void delete_element(int value);<br>
+        void search_element(int value);<br>
+        void display_dlist();<br>
+        void count();<br>
+        void reverse();<br>
+        double_llist()<br>
+        {<br>
+            start = NULL;  <br>
+        }<br>
+};<br>
+ int main()<br>
+{<br>
+    int choice, element, position;<br>
+    double_llist dl;<br>
+    while (1)<br>
+    {<br>
+        cout<<endl<<"----------------------------"<<endl;<br>
+        cout<<endl<<"Operations on Doubly linked list"<<endl;<br>
+        cout<<endl<<"----------------------------"<<endl;   <br>   
+        cout<<"1.Create Node"<<endl;<br>
+        cout<<"2.Add at begining"<<endl;<br>
+        cout<<"3.Add after position"<<endl;<br>
+        cout<<"4.Delete"<<endl;<br>
+        cout<<"5.Display"<<endl;<br>
+        cout<<"6.Count"<<endl;<br>
+        cout<<"7.Reverse"<<endl;<br>
+        cout<<"8.Quit"<<endl;<br>
+        cout<<"Enter your choice : ";<br>
+        cin>>choice;<br>
+        switch ( choice )<br>
+        {<br>
+        case 1:<br>
+            cout<<"Enter the element: ";<br>
+            cin>>element;<br>
+            dl.create_list(element);<br>
+            cout<<endl;<br>
+            break;<br>
+        case 2:<br>
+            cout<<"Enter the element: ";<br>
+            cin>>element;<br>
+            dl.add_begin(element);<br>
+            cout<<endl;<br>
+            break;<br>
+        case 3:<br>
+            cout<<"Enter the element: ";<br>
+            cin>>element;<br>
+            cout<<"Insert Element after postion: ";<br>
+            cin>>position;<br>
+            if(position<=0)<br>
+            {<br>
+            	cout<<"\n Position cant be less than 1. "<<endl;<br>
+            break;<br>
+			}<br>
+            dl.add_after(element, position);<br>
+            cout<<endl;<br>
+            break;<br>
+        case 4:<br>
+            if (start == NULL)<br>
+            {                    <br>  
+                cout<<"List empty,nothing to delete"<<endl;  <br>
+                break;<br>
+            }<br>
+            cout<<"Enter the element for deletion: ";<br>
+            cin>>element;<br>
+            dl.delete_element(element);<br>
+            cout<<endl;<br>
+            break;<br>
+        case 5:<br>
+            dl.display_dlist();<br>
+            cout<<endl;<br>
+            break;<br>
+        case 6:<br>
+            dl.count();<br>
+            break;  <br>  
+        case 7:<br>
+            if (start == NULL)<br>
+            {<br>
+                cout<<"List empty,nothing to reverse"<<endl;<br>
+                break;<br>
+            }<br>
+            dl.reverse();<br>
+            cout<<endl;<br>
+            break;<br>
+        case 8:<br>
+            exit(1);<br>
+        default:<br>
+            cout<<"Wrong choice"<<endl;<br>
+        }<br>
+    }<br>
+    return 0;<br>
+}<br>
+ void double_llist::create_list(int value)<br>
+{<br>
+    struct node *s, *temp;<br>
+    temp = new(struct node);<br>
+    temp->info = value;<br>
+    temp->next = NULL;<br>
+    if (start == NULL)<br>
+    {<br>
+        temp->prev = NULL;<br>
+        start = temp;<br>
+    }<br>
+    else<br>
+    {<br>
+        s = start;<br>
+        while (s->next != NULL)<br>
+            s = s->next;<br>
+        s->next = temp;<br>
+        temp->prev = s;<br>
+    }<br>
+}<br>
+ void double_llist::add_begin(int value)<br>
+{<br>
+    if (start == NULL)<br>
+    {<br>
+        cout<<"First Create the list."<<endl;<br>
+        return;<br>
+    }<br>
+    struct node *temp;<br>
+    temp = new(struct node);<br>
+    temp->prev = NULL;<br>
+    temp->info = value;<br>
+    temp->next = start;<br>
+    start->prev = temp;<br>
+    start = temp;<br>
+    cout<<"Element Inserted"<<endl;<br>
+}<br>
+void double_llist::add_after(int value, int pos)<br>
+{<br>
+    if (start == NULL)<br>
+    {<br>
+        cout<<"First Create the list."<<endl;<br>
+        return;<br>
+    }<br>
+    struct node *tmp, *q;<br>
+    int i;<br>
+    q = start;<br>
+    for (i = 0;i < pos - 1;i++)<br>
+    {<br>
+        q = q->next;<br>
+        if (q == NULL)<br>
+        {<br>
+            cout<<"There are less than ";<br>
+            cout<<pos<<" elements."<<endl;<br>
+            return;<br>
+        }<br>
+    }<br>
+    tmp = new(struct node);<br>
+    tmp->info = value;<br>
+    if (q->next == NULL)<br>
+    {<br>
+        q->next = tmp;<br>
+        tmp->next = NULL;<br>
+        tmp->prev = q;    <br>  
+    }<br>
+    else<br>
+    {<br>
+        tmp->next = q->next;<br>
+        tmp->next->prev = tmp;<br>
+        q->next = tmp;<br>
+        tmp->prev = q;<br>
+    }<br>
+    cout<<"Element Inserted"<<endl;<br>
+}<br>
+ void double_llist::delete_element(int value)<br>
+{<br>
+    struct node *tmp, *q;<br>
+        if (start->info == value)<br>
+    {<br>
+        tmp = start;<br>
+        start = start->next;  <br>
+        start->prev = NULL;<br>
+        cout<<"Element Deleted"<<endl;<br>
+        free(tmp);<br>
+        return;<br>
+    }<br>
+    q = start;<br>
+    while (q->next->next != NULL)<br>
+    {  <br>
+               if (q->next->info == value)  <br>
+        {<br>
+            tmp = q->next;<br>
+            q->next = tmp->next;<br>
+            tmp->next->prev = q;<br>
+            cout<<"Element Deleted"<<endl;<br>
+            free(tmp);<br>
+            return;<br>
+        }<br>
+        q = q->next;<br>
+    }<br>
+        if (q->next->info == value)  <br>  
+    {<br>
+        tmp = q->next;<br>
+        free(tmp);<br>
+        q->next = NULL;<br>
+        cout<<"Element Deleted"<<endl;<br>
+        return;<br>
+    }<br>
+    cout<<"Element "<<value<<" not found"<<endl;<br>
+}<br>
+ void double_llist::display_dlist()<br>
+{<br>
+    struct node *q;<br>
+    if (start == NULL)<br>
+    {<br>
+        cout<<"List empty,nothing to display"<<endl;<br>
+        return;<br>
+    }<br>
+    q = start;<br>
+    cout<<"The Doubly Link List is :"<<endl;<br>
+    while (q != NULL)<br>
+    {<br>
+        cout<<q->info<<" <-> ";<br>
+        q = q->next;<br>
+    }<br>
+    cout<<"NULL"<<endl;<br>
+}<br>
+ void double_llist::count()<br>
+{<br>
+    struct node *q = start;<br>
+    int cnt = 0;<br>
+    while (q != NULL)<br>
+    {<br>
+        q = q->next;<br>
+        cnt++;<br>
+    }<br>
+    cout<<"Number of elements are: "<<cnt<<endl;<br>
+}<br>
+ void double_llist::reverse()<br>
+{<br>
+    struct node *p1, *p2;<br>
+    p1 = start;<br>
+    p2 = p1->next;<br>
+    p1->next = NULL;<br>
+    p1->prev = p2;<br>
+    while (p2 != NULL)<br>
+    {<br>
+        p2->prev = p2->next;<br>
+        p2->next = p1;<br>
+        p1 = p2;<br>
+        p2 = p2->prev;<br>
+    }<br>
+    start = p1;<br>
+    cout<<"List Reversed"<<endl;<br>
+}<br>	
+<br>	
+**OUTPUT**<br>
+![image](https://user-images.githubusercontent.com/97940850/163925823-3a5f14c6-7a35-4b6b-b938-65c6637fe5a2.png)<br>
+![image](https://user-images.githubusercontent.com/97940850/163925915-56cb951c-b09b-445e-8835-03d1a7112d98.png)<br>
+![image](https://user-images.githubusercontent.com/97940850/163926042-c912ec96-1226-4520-8477-3a9f9c382dd6.png)<br>
+![image](https://user-images.githubusercontent.com/97940850/163926125-0f99da44-5330-43ba-a4b3-2dd9456d7bfa.png)<br>
+![image](https://user-images.githubusercontent.com/97940850/163926257-5cfb44bb-76f9-4155-87b9-751b66ca5687.png)<br>
 
-**15. Write a C++ program to solve N-Queue problem using backtracking method. **
-#include<iostream>
-using namespace std;
-#define N 6
-void printBoard(int board[N][N])
- {
-   for (int i = 0; i < N; i++) 
-   {
-      for (int j = 0; j < N; j++)
-         cout << board[i][j] << " ";
-         cout << endl;
-   }
-}
-bool isValid(int board[N][N], int row, int col) 
-{
-   for (int i = 0; i < col; i++) //check whether there is queen in the left or not
-      if (board[row][i])
-         return false;
-   for (int i=row, j=col; i>=0 && j>=0; i--, j--)
-      if (board[i][j]) //check whether there is queen in the left upper diagonal or not
-         return false;
-   for (int i=row, j=col; j>=0 && i<N; i++, j--)
-      if (board[i][j]) //check whether there is queen in the left lower diagonal or not
-         return false;
-   return true;
-}
-bool solveNQueen(int board[N][N], int col) 
-{
-   if (col >= N) //when N queens are placed successfully
-      return true;
-   for (int i = 0; i < N; i++) 
-   { //for each row, check placing of queen is possible or not
-      if (isValid(board, i, col) )
-	   {
-         board[i][col] = 1; //if validate, place the queen at place (i, col)
-         if ( solveNQueen(board, col + 1)) //Go for the other columns recursively
-            return true;
-         board[i][col] = 0; //When no place is vacant remove that queen
-      }
-   }
-   return false; //when no possible order is found
-}
-bool checkSolution() 
-{
-   int board[N][N];
-   for(int i = 0; i<N; i++)
-   for(int j = 0; j<N; j++)
-   board[i][j] = 0; //set all elements to 0
-   if ( solveNQueen(board, 0) == false ) 
-   { //starting from 0th column
-      cout << "Solution does not exist";
-      return false;
-   }
-   printBoard(board);
-   return true;
-}
-int main() {
-   checkSolution();
-}
-
-**OUTPUT**	
-![image](https://user-images.githubusercontent.com/97940850/163926725-8a2868c2-dbc5-491c-baa6-d1bbf789f910.png)
+**15. Write a C++ program to solve N-Queue problem using backtracking method. **<br>
+#include<iostream><br>
+using namespace std;<br>
+#define N 6<br>
+void printBoard(int board[N][N])<br>
+ {<br>
+   for (int i = 0; i < N; i++) <br>
+   {<br>
+      for (int j = 0; j < N; j++)<br>
+         cout << board[i][j] << " ";<br>
+         cout << endl;<br>
+   }<br>
+}<br>
+bool isValid(int board[N][N], int row, int col) <br>
+{<br>
+   for (int i = 0; i < col; i++) //check whether there is queen in the left or notv
+      if (board[row][i])<br>
+         return false;<br>
+   for (int i=row, j=col; i>=0 && j>=0; i--, j--)<br>
+      if (board[i][j]) //check whether there is queen in the left upper diagonal or not<br>
+         return false;<br>
+   for (int i=row, j=col; j>=0 && i<N; i++, j--)v
+      if (board[i][j]) //check whether there is queen in the left lower diagonal or not<br>
+         return false;<br>
+   return true;<br>
+}<br>
+bool solveNQueen(int board[N][N], int col) <br>
+{<br>
+   if (col >= N) //when N queens are placed successfully<br>
+      return true;<br>
+   for (int i = 0; i < N; i++) <br>
+   { //for each row, check placing of queen is possible or not<br>
+      if (isValid(board, i, col) )<br>
+	   {<br>
+         board[i][col] = 1; //if validate, place the queen at place (i, col)<br>
+         if ( solveNQueen(board, col + 1)) //Go for the other columns recursively<br>
+            return true;<br>
+         board[i][col] = 0; //When no place is vacant remove that queen<br>
+      }<br>
+   }<br>
+   return false; //when no possible order is found<br>
+}<br>
+bool checkSolution() <br>
+{<br>
+   int board[N][N];<br>
+   for(int i = 0; i<N; i++)<br>
+   for(int j = 0; j<N; j++)<br>
+   board[i][j] = 0; //set all elements to 0<br>
+   if ( solveNQueen(board, 0) == false ) <br>
+   { //starting from 0th column<br>
+      cout << "Solution does not exist";<br>
+      return false;<br>
+   }<br>
+   printBoard(board);<br>
+   return true;<br>
+}<br>
+int main()<br>
+{<br>
+   checkSolution();<br>
+}<br>
+<br>
+**OUTPUT**	<br>
+![image](https://user-images.githubusercontent.com/97940850/163926725-8a2868c2-dbc5-491c-baa6-d1bbf789f910.png)<br>
       
 
