@@ -615,49 +615,50 @@ return 0;<br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/154897558-5782c729-8fe7-431b-8983-ed77247066b8.png)<br>
 
- **3. Write a c++ program to spliting of arrays.**
-	#include<iostream>
-using namespace std;
-int main()
-{
-	int a[20],i,n,a1[20],a2[20],k1=0,k2=0,pos;
-	cout<<"Enter the size of an array: "<<endl;
-	cin>>n;
-	cout<<"Enter array elements: "<<endl;
-	for(i=0;i<n;i++)
-	{
-	cin>>a[i];
-	}
-	cout<<"Enter the position to split the array into 2"<<endl;
-	cin>>pos;
-	for(i=0;i<n;i++)
-	{
-		if(i<pos)
-		a1[k1++]=a[i];
-		else
-		a2[k2++]=a[i];
-	}
-		cout<<"\nArray elements of array1 \n";
-			for(i=0;i<k1;i++)
-			{
+ **3. Write a c++ program to spliting of arrays.**<br>
+#include<iostream><br>
+using namespace std;<br>
+int main()<br>
+{<br>
+	int a[20],i,n,a1[20],a2[20],k1=0,k2=0,pos;<br>
+	cout<<"Enter the size of an array: "<<endl;<br>
+	cin>>n;<br>
+	cout<<"Enter array elements: "<<endl;<br>
+	for(i=0;i<n;i++)<br>
+	{<br>
+		cin>>a[i];<br>
+	}<br>
+	cout<<"Enter the position to split the array into 2"<<endl;<br>
+	cin>>pos;<br>
+	for(i=0;i<n;i++)<br>
+	{<br>
+		if(i<pos)<br>
+		a1[k1++]=a[i];<br>
+		else<br>
+		a2[k2++]=a[i];<br>
+	}<br>
+		cout<<"\nArray elements of array1 \n";<br>
+			for(i=0;i<k1;i++)<br>
+			{<br>
 				 
-                cout<<a1[i]<<endl;
-			}
+               			 cout<<a1[i]<<endl;<br>
+			}<br>
 			
-			cout<<"\nArray elements of array2 \n";
-			for(i=0;i<k2;i++)
-			{
+			cout<<"\nArray elements of array2 \n";<br>
+			for(i=0;i<k2;i++)<br>
+			{<br>
 				 
-               cout<<a2[i]<<endl;
-			}
+             		  cout<<a2[i]<<endl;<br>
+			}<br>
 		
-			cout<<"\n";
-			return 0;
-		}
-			
-**OUTPUT**
-	
-	
+			cout<<"\n";<br>
+			return 0;<br>
+		}<br>
+			<br>
+**OUTPUT**<br>
+![image](https://user-images.githubusercontent.com/97940850/164607660-689653b6-02ee-49f2-8278-60fdcd0a937a.png)<br>
+
+<br>	
 	
  **4.write a C++ program to implement addition of two arrays **<br>
 #include<iostream><br>
