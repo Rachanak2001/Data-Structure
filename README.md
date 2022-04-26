@@ -2057,8 +2057,10 @@ int main()<br>
 
 <br>
 **OUTPUT**<br>
-![image](https://user-images.githubusercontent.com/97940850/165226736-8ef50d16-3446-41de-97ff-acbf1a77f4d9.png)<br>
-		<br>						      
+![image](https://user-images.githubusercontent.com/97940850/165240655-8c64058b-b504-4f8c-be21-e7cc86fdb739.png)<br>
+<br>	
+	
+	
 **19.Write a c++ program to implement DFS. **<br>
 #include<iostream><br>
 #include<conio.h><br>
@@ -2103,10 +2105,12 @@ int main()<br>
 }<br>
 <br>
 **OUTPUT**<br>
-![image](https://user-images.githubusercontent.com/97940850/165233433-8cf4800a-c017-462e-9fb6-ffd239571dc4.png)<br>
-	<br>
+<br>
+![image](https://user-images.githubusercontent.com/97940850/165240333-caf55da8-bad3-49a6-8ba2-e0ca5f45d650.png)<br>
+	
+	
 **20. Write a c++ program to implement BFS.**<br>
-	#include<iostream><br>
+#include<iostream><br>
 #include<conio.h><br>
 #include<stdlib.h><br>
 using namespace std;<br>
