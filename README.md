@@ -2058,97 +2058,97 @@ int main()<br>
 <br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/165226736-8ef50d16-3446-41de-97ff-acbf1a77f4d9.png)<br>
-								      
-**19.Write a c++ program to implement DFS. **
-#include<iostream>
-#include<conio.h>
-#include<stdlib.h>
-using namespace std;
-int cost[10][10],i,j,k,n,stk[10],top,v,visit[10],visited[10];
-int main()
-{
-    int m;
-    cout <<"Enter no of vertices:";
-    cin >> n;
-    cout <<"Enter no of edges:";
-    cin >> m;
-    cout <<"\nEDGES \n";
-    for(k=1; k<=m; k++)
-    {
-        cin >>i>>j;
-        cost[i][j]=1;
-    }
-    cout <<"Enter initial vertex to traverse from:";
-    cin >>v;
-    cout <<"DFS ORDER OF VISITED VERTICES:";
-    cout << v <<" ";
-    visited[v]=1;
-    k=1;
-    while(k<n)
-    {
-        for(j=n; j>=1; j--)
-            if(cost[v][j]!=0 && visited[j]!=1 && visit[j]!=1)
-            {
-                visit[j]=1;
-                stk[top]=j;
-                top++;
-            }
-        v=stk[--top];
-        cout<<v << " ";
-        k++;
-        visit[v]=0;
-        visited[v]=1;
-    }
-    return 0;
-}
+		<br>						      
+**19.Write a c++ program to implement DFS. **<br>
+#include<iostream><br>
+#include<conio.h><br>
+#include<stdlib.h><br>
+using namespace std;<br>
+int cost[10][10],i,j,k,n,stk[10],top,v,visit[10],visited[10];<br>
+int main()<br>
+{<br>
+    int m;<br>
+    cout <<"Enter no of vertices:";<br>
+    cin >> n;<br>
+    cout <<"Enter no of edges:";<br>
+    cin >> m;<br>
+    cout <<"\nEDGES \n";<br>
+    for(k=1; k<=m; k++)<br>
+    {<br>
+        cin >>i>>j;<br>
+        cost[i][j]=1;<br>
+    }<br>
+    cout <<"Enter initial vertex to traverse from:";<br>
+    cin >>v;<br>
+    cout <<"DFS ORDER OF VISITED VERTICES:";<br>
+    cout << v <<" ";<br>
+    visited[v]=1;<br>
+    k=1;<br>
+    while(k<n)<br>
+    {<br>
+        for(j=n; j>=1; j--)<br>
+            if(cost[v][j]!=0 && visited[j]!=1 && visit[j]!=1)<br>
+            {<br>
+                visit[j]=1;<br>
+                stk[top]=j;<br>
+                top++;<br>
+            }<br>
+        v=stk[--top];<br>
+        cout<<v << " ";<br>
+        k++;<br>
+        visit[v]=0;<br>
+        visited[v]=1;<br>
+    }<br>
+    return 0;<br>
+}<br>
+<br>
+**OUTPUT**<br>
+![image](https://user-images.githubusercontent.com/97940850/165233433-8cf4800a-c017-462e-9fb6-ffd239571dc4.png)<br>
+	<br>
+**20. Write a c++ program to implement BFS.**<br>
+	#include<iostream><br>
+#include<conio.h><br>
+#include<stdlib.h><br>
+using namespace std;<br>
+ int cost[10][10],qu[10],front,rare,visit[10],visited[10];<br>
+int main()<br>
+{<br>
 
-**OUTPUT**
-![image](https://user-images.githubusercontent.com/97940850/165233433-8cf4800a-c017-462e-9fb6-ffd239571dc4.png)
-	
-**20. Write a c++ program to implement BFS.**
-	#include<iostream>
-#include<conio.h>
-#include<stdlib.h>
-using namespace std;
- int cost[10][10],qu[10],front,rare,visit[10],visited[10];
-int main()
-{
-
-   int m,n,j,i,v,k;
-    cout <<"Enter no of vertices:";
-    cin >> n;
-    cout <<"Enter no of edges:";
-    cin >> m;
-    cout <<"\nEDGES \n";
-    for(k=1; k<=m; k++)
-    {
-        cin >>i>>j;
-        cost[i][j]=1;
-    }
-    cout <<"Enter initial vertex to traverse from:";
-    cin >>v;
-    cout <<"Visitied vertices:";
-    cout <<v<<" ";
-    visited[v]=1;
-    k=1;
-    while(k<n)
-    {
-        for(j=1; j<=n; j++)
-            if(cost[v][j]!=0 && visited[j]!=1 && visit[j]!=1)
-            {
-                visit[j]=1;
-                qu[rare++]=j;
-            }
-        v=qu[front++];
-        cout<<v <<" ";
-        k++;
-        visit[v]=0;
-        visited[v]=1;
-    }
-    return 0;
-}
-	
-**OUTPUT**
-![image](https://user-images.githubusercontent.com/97940850/165234476-4157cf74-79a1-4f45-97c4-1d9df46f91f2.png)
+   int m,n,j,i,v,k;<br>
+    cout <<"Enter no of vertices:";<br>
+    cin >> n;<br>
+    cout <<"Enter no of edges:";<br>
+    cin >> m;<br>
+    cout <<"\nEDGES \n";<br>
+    for(k=1; k<=m; k++)<br>
+    {<br>
+        cin >>i>>j;<br>
+        cost[i][j]=1;<br>
+    }<br>
+    cout <<"Enter initial vertex to traverse from:";<br>
+    cin >>v;<br>
+    cout <<"Visitied vertices:";<br>
+    cout <<v<<" ";<br>
+    visited[v]=1;<br>
+    k=1;<br>
+    while(k<n)<br>
+    {<br>
+        for(j=1; j<=n; j++)<br>
+            if(cost[v][j]!=0 && visited[j]!=1 && visit[j]!=1)<br>
+            {<br>
+                visit[j]=1;<br>
+                qu[rare++]=j;<br>
+            }<br>
+        v=qu[front++];<br>
+        cout<<v <<" ";<br>
+        k++;<br>
+        visit[v]=0;<br>
+        visited[v]=1;<br>
+    }<br>
+    return 0;<br>
+}<br>
+	<br>
+**OUTPUT**<br>
+![image](https://user-images.githubusercontent.com/97940850/165234476-4157cf74-79a1-4f45-97c4-1d9df46f91f2.png)<br>
 
 	
