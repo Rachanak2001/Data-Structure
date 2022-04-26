@@ -696,7 +696,7 @@ cout << add[i] << " ";<br>
 **OUTPUT**<br>
  ![image](https://user-images.githubusercontent.com/97940850/154901723-e6259951-33e2-4f3f-9d73-23398c59a006.png)<br>
 	
-**4. Write a c++ program to implement reverse order of the array element.**<br>
+**5. Write a c++ program to implement reverse order of the array element.**<br>
 #include<iostream><br>
 using namespace std;<br>
 int main()<br>
@@ -717,7 +717,7 @@ int main()<br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/154902782-c9f796fd-b2a5-4e6f-b50b-e082f7ed7da3.png)<br>
 	
-**5. Write a C++ program stack using array.**<br>
+**6. Write a C++ program stack using array.**<br>
 //eg5 Stack using array<br>
 #include <iostream><br>
 using namespace std;<br>
@@ -785,7 +785,7 @@ int main() {<br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/154903861-ff79a97d-0112-4351-9911-02ae4959034b.png)<br>
 
-**6. write a C++ program to binary search element**<br>
+**7. write a C++ program to binary search element**<br>
 //eg4 binary search<br>
 #include<iostream><br>
 using namespace std;<br>
@@ -821,7 +821,7 @@ int main()<br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/154904981-d74c8b7b-0635-43a5-8a11-ce208c6eea2e.png)<br>
 
-**7. Adding 10 numbers using for,while,dowhile. using switch case.**<br>
+**8. Adding 10 numbers using for,while,dowhile. using switch case.**<br>
 #include<iostream><br>
 using namespace std;<br>
 int main()<br>
@@ -900,7 +900,7 @@ case 4:{<br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/155065823-90d755c2-c517-4e71-8849-012bcdc25b98.png)<br>
 					     
-**8./* Write a C++ program to implement BST to support the following operations<br>
+**9./* Write a C++ program to implement BST to support the following operations<br>
 Assume no duplicate elements while constructing the BST<br>
 1.Given a key perform a search in the BST, if the key is found then display "key found"<br>
 2.Insert an element into a BST<br>
@@ -1247,7 +1247,7 @@ void BST::display(node *ptr, int level) <br>
 ![image](https://user-images.githubusercontent.com/97940850/155077112-a0a643b1-1c0a-4c3d-a49d-db565e4f5763.png)<br>
 ![image](https://user-images.githubusercontent.com/97940850/155077212-18bfce06-978d-41e0-b16b-5bb3026c9632.png)<br>
 
-**9. //Write a C++ program to implement minimum heap.**<br>
+**10. //Write a C++ program to implement minimum heap.**<br>
 //Write a C++ program to implement minimum heap.<br>
 #include <iostream><br>
 #include <conio.h><br>
@@ -1295,7 +1295,7 @@ int main() <br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/155930803-c5d4e853-4f8b-4e89-adb4-7c27b56b5179.png)<br>
 	       
-**10.//Write a C++ program to implement maximum heap.**<br>
+**11.//Write a C++ program to implement maximum heap.**<br>
 #include <iostream><br>
 using namespace std;<br>
 void max_heap(int *a, int m, int n) {<br>
@@ -1339,7 +1339,7 @@ int main() {<br>
 **OUTPUT**	<br>
 ![image](https://user-images.githubusercontent.com/97940850/156985379-70a13c84-6a1d-49fe-9576-4023593ee59a.png)<br>
 	       
-**11.Find a subset of given set,s={s1,s2,s3....sn} of n positive integer whose sum=a,given positive integer d.**<br>
+**12.Find a subset of given set,s={s1,s2,s3....sn} of n positive integer whose sum=a,given positive integer d.**<br>
 #include <iostream><br>
 using namespace std;<br>
 void displaySubset(int subSet[], int size)<br>
@@ -1386,7 +1386,7 @@ int main()<br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/157186615-bf022f29-a9bd-484f-ba85-44cfe525d621.png)<br>
 
-**/*12..Write a program to store k keys into an array of size n at the location compute using a hash function, <br>
+**/*13..Write a program to store k keys into an array of size n at the location compute using a hash function, <br>
 loc=key%n, where k<=n and  key takes values from [1 to m], m>n. Handle the collision using Linear Probing technique.*/**<br>
 #include<iostream><br>
 #include<limits.h><br>
@@ -1455,7 +1455,7 @@ return 0;<br>
 <br>
 	
 	
-**13. /*Write a C++ program to implement merge sort technique using divide and conquer method.*/**<br>
+**14. /*Write a C++ program to implement merge sort technique using divide and conquer method.*/**<br>
 #include <iostream><br>
 #include<conio.h><br>
 using namespace std;<br>
@@ -1531,7 +1531,7 @@ for(i = 0; i < n; i++)<br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/162889023-188b1519-5788-4ab3-bed5-22b8b855260d.png)<br>
 				
-**14. Write a c++ program to implement doubly Linked list.**<br>
+**15. Write a c++ program to implement doubly Linked list.**<br>
 #include<iostream><br>
 #include<cstdio><br>
 #include<cstdlib><br>
@@ -1801,7 +1801,7 @@ void double_llist::add_after(int value, int pos)<br>
 ![image](https://user-images.githubusercontent.com/97940850/163926125-0f99da44-5330-43ba-a4b3-2dd9456d7bfa.png)<br>
 ![image](https://user-images.githubusercontent.com/97940850/163926257-5cfb44bb-76f9-4155-87b9-751b66ca5687.png)<br>
 
-**15. Write a C++ program to solve N-Queue problem using backtracking method. **<br>
+**16. Write a C++ program to solve N-Queue problem using backtracking method. **<br>
 #include<iostream><br>
 using namespace std;<br>
 int grid[10][10];<br>
