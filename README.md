@@ -1905,7 +1905,7 @@ int main()<br>
 ![image](https://user-images.githubusercontent.com/97940850/163940155-348b853a-c87d-4d81-85a7-eb185157e372.png)<br>
 
 	
-**17. Write a C++ program to find  MST Using  Kruskal's algorithm.**
+**17. Write a C++ program to find  MST Using  Kruskal's algorithm.**<br>
 #include<bits/stdc++.h>
 using namespace std;
 typedef pair<int, int> iPair;
@@ -2001,9 +2001,9 @@ int main()
 	cout << "\nWeight of MST is " << mst_wt;
 	return 0;
 }
-
+	
 **OUTPUT**
-![image](https://user-images.githubusercontent.com/97940850/165226324-58693879-30d7-4b57-b59b-5f707b300f84.png)
+![image](https://user-images.githubusercontent.com/97940850/165230800-bb45de63-9fac-4176-a319-755c346b52e5.png)
 	
 **18.  Write a C++ program to find   MST using Prim's algorithm..**
 #include <bits/stdc++.h>
