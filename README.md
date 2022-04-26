@@ -2015,7 +2015,7 @@ int minKey(int key[], bool mstSet[])
 	for (int v = 0; v < V; v++)
 	if (mstSet[v] == false && key[v] < min)
 	min = key[v], min_index = v;
-return min_index;
+	return min_index;
 }
 void printMST(int parent[], int graph[V][V])
 {
@@ -2026,6 +2026,7 @@ void printMST(int parent[], int graph[V][V])
 
 void primMST(int graph[V][V])
 {
+	int parent[V];
 	int key[V];
 	bool mstSet[V];
 	for (int i = 0; i < V; i++)
@@ -2052,6 +2053,7 @@ int main()
 	primMST(graph);
 	return 0;
 }
+
 
 **OUTPUT**
 ![image](https://user-images.githubusercontent.com/97940850/165226736-8ef50d16-3446-41de-97ff-acbf1a77f4d9.png)
