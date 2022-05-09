@@ -2227,3 +2227,91 @@ int main()<br>
 **OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/165238668-00e742ef-3270-408e-b5fd-4cf67d4f2a12.png)<br>
 
+Tower of hanoi<br>
+
+  #include <iostream><br>
+   using namespace std;<br>
+    void towers(int, char, char, char);<br>
+       int main()<br>
+  {<br>
+     int num;<br>
+     cout<<"Enter the number of disks : ";<br>
+     cin>>num;<br>
+       cout<<"The sequence of moves involved in the Tower of Hanoi are :\n";<br>
+       towers(num, 'A', 'C', 'B');<br>
+        return 0;<br>
+      }<br>
+     void towers(int num, char frompeg, char topeg, char auxpeg)<br>
+        {<br>
+     if (num == 1)<br>
+        {<br>
+    cout<<"Move disk 1 from peg "<<frompeg<<" to peg "<<topeg<<"\n;<br>
+    return;<br>
+         }<br>
+       towers(num - 1, frompeg, auxpeg, topeg);<br>
+         cout<<"Move disk "<<num<<" from peg "<<frompeg<<" to peg "<<topeg<<"\n";<br>
+          towers(num - 1, auxpeg, topeg, frompeg);<br>
+       }<br>
+
+
+out put <br>
+image<br>
+
+             Write a C++ program to count the number of connected components in an undirected graph<br>
+		#include <iostream><br>
+		#include <list><br>
+		using namespace std;<br>
+		class Graph {<br>
+		int V; <br>
+		list<int>* adj;<br>
+		void DFSUtil(int v, bool visited[]);<br>
+		public:<br>
+		Graph(int V); <br>
+		~Graph();<br>
+		void addEdge(int v, int w);<br>
+		void connectedComponents();<br>
+		};<br>
+		void Graph::connectedComponents()<br>
+		{<br>
+		bool* visited = new bool[V];<br>
+		for (int v = 0; v < V; v++)<br>
+		visited[v] = false;<br>
+		for (int v = 0; v < V; v++) {<br>
+		if (visited[v] == false) {
+		DFSUtil(v, visited);<br>
+		cout << "\n";<br>
+		}<br>
+		}<br>
+		delete[] visited;<br>
+		}<br>
+		void Graph::DFSUtil(int v, bool visited[])<br>
+		{<br>
+		visited[v] = true;<br>
+		cout << v << " ";<br>
+		list<int>::iterator i;<br>
+		for (i = adj[v].begin(); i != adj[v].end(); ++i)<br>
+		if (!visited[*i])<br>
+		
+		DFSUtil(*i, visited);<br>
+		}<br>
+		Graph::Graph(int V)<br>
+		{<br>
+		this->V = V;<br>
+		adj = new list<int>[V];<br>
+		}<br>
+		Graph::~Graph() { delete[] adj; }<br>
+		void Graph::addEdge(int v, int w)<br>
+		{<br>
+		adj[v].push_back(w);<br>
+		adj[w].push_back(v);<br>
+		}<br>
+		int main()<br>
+		{<br>
+		Graph g(5); <br>
+		g.addEdge(1, 0);<br>
+		g.addEdge(2, 3);<br>
+		g.addEdge(3, 4);<br>
+		cout << "Following are connected components \n";<br>
+		g.connectedComponents();<br>
+		return 0;<br>
+		}<br>
